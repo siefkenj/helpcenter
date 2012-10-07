@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Help Center</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width">
+
+	<!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+	<link rel="stylesheet" href="css/main.css">
+	<script src="js/vendor/modernizr-2.6.1.min.js"></script>
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.7.2.min.js"><\/script>')</script>
+	<script src="js/plugins.js"></script>
+	<script type="text/javascript" src="jquery/js/jquery-ui-1.8.18.custom.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery/css/redmond/jquery-ui-1.8.18.custom.css" />
+	<script type="text/javascript" src="jquery/js/jquery.json-2.3.js"></script>
+	<script type="text/javascript" src="jquery/js/jstorage.js"></script>
+
+	<!-- graphing plugins -->
+	<script type="text/javascript" src="jquery/js/jquery.jqplot.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery/css/jquery.jqplot.css" />
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.canvasTextRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.canvasAxisTickRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.dateAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.barRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+	<script type="text/javascript" src="jquery/js/plugins/jqplot.pointLabels.min.js"></script>
+
+
+	<!-- load the interface script -->
+	<script src="js/main.js"></script>
+
+</head>
+<body>
+	<!--[if lt IE 7]>
+		<p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+	<![endif]-->
+
+	<div id="header" class="ui-widget ui-widget-header">
+		Math Help Center
+	</div>
+	<div id="studentlist" class="ui-widget ui-widget-content ui-helper-clearfix">
+		<div id="sidepanel">
+			<h2>How to Use the Help Center</h2>
+			<p>Type your name and select your faculty
+			and the course you want help with in the 
+			bottom bar.  Then, press the "Add to List" button.
+			A tutor will come to help you as soon as one
+			is available.
+			</p>
+			<p>If you decide you no loner need help, press the 
+			"Remove" button to the right of your name.
+			</p>
+			<h2 id="expectedwait">Expected Wait: <span id="expectedwaitminutes">Unknown</span></h2>
+			<div id="courseschart"></div>
+		</div>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Faculty</th>
+					<th>Course</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+	<div id="studentadd" class="ui-widget ui-widget-header">
+		<span class='inputitem'>Name: <input id='name' type="text"></input></span>
+		<span class='inputitem'>Faculty: 
+		<select id="faculty">
+			<option value="Engineering">Engineering</option>
+			<option value="Science">Science</option>
+			<option value="Other">Other</option>
+		</select></span>
+		<span class='inputitem'>Course: 
+		<select id="course">
+			<option value="MATH 100">MATH 100</option>
+			<option value="MATH 101">MATH 101</option>
+			<option value="MATH 120">MATH 120</option>
+			<option value="Other">Other...</option>
+		</select>
+		<input id="courseinput"></input></span>
+		<button id="addname">Add to List</button>
+	</div>
+	<div id="adminpage">
+		<div>
+			Select date range: <input type='text' id='fromdate'></input> to <input type='text' id='todate'></input>
+		</div>
+		<div>
+			<h3>Actions</h3>
+			<button id='downloaddata'>Download Data</button>
+			<button id='cleardata'>Clear All Data</button>
+		</div>
+		<div>
+			<h3>Data</h3>
+			Students Helped: <span id='numstudentshelped'></span>
+			Students Removed: <span id='numstudentsremoved'></span>
+			<br/>
+			<div id='chart1' style='width:25%; display:inline-block; margin:1em;'></div>
+			<div id='chart2' style='width:25%; display:inline-block; margin:1em;'></div>
+			<div id='chart3' style='width:25%; display:inline-block; margin:1em;'></div>
+			<div id='chart4' style='width:25%; display:inline-block; margin:1em;'></div>
+			<div id='chart5' style='width:25%; display:inline-block; margin:1em;'></div>
+		</div>
+	</div>
+
+</body>
+</html>
