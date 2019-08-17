@@ -1,0 +1,20 @@
+language: node_js
+node_js:
+  - "8.12.0"
+cache:
+  directories:
+  - node_modules
+script:
+  - echo "Nothing to build"
+after_failure: cat /home/travis/.npm/_logs/*-debug.log
+warnings_are_errors: false
+env:
+  CI=false
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token
+  local_dir: ./
+  on:
+    branch: master
+
